@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Kalkulator</string>
+    <string name="input_lebar" />
+    <string name="input_panjang" />
+    <string name="input_tinggi" />
+    <string name="btn_hitung" />
+    <string name="result" />
+</resources>
