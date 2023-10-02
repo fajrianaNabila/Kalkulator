@@ -8,10 +8,10 @@ import android.widget.EditText
 import android.widget.TextView
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
-    private lateinit var panjang : EditText
-    private lateinit var lebar : EditText
-    private lateinit var tinggi: EditText
-    private lateinit var hasil: TextView
+    private lateinit var input_panjang : EditText
+    private lateinit var input_lebar : EditText
+    private lateinit var input_tinggi: EditText
+    private lateinit var teks_hasil: TextView
     private lateinit var btn: Button
 
     companion object {
@@ -21,24 +21,32 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         //inisialisasi variable
-        panjang = findViewById(R.id.edt_length)
-        lebar = findViewById(R.id.edt_width)
-        tinggi = findViewById(R.id.edt_height)
+        input_panjang = findViewById(R.id.edt_length)
+        input_lebar = findViewById(R.id.edt_width)
+        input_tinggi = findViewById(R.id.edt_height)
         btn = findViewById(R.id.btn_result)
-        hasil = findViewById(R.id.result)
-
+        teks_hasil = findViewById(R.id.result)
+       if (savedInstanceState != null) {
+           teks_hasil.text = savedInstanceState.getString(STATE_RESULT)
+       }
         btn.setOnClickListener(this)
+
+
     }
 
-    override fun onClick(p0: View?) {
-        if (v?.id==R.btn_result){
-            val input_panjang = panjang.text.toString().trim()
-            val input_lebar = lebar.text.toString().trim()
-            val input_tinggi = tinggi.text.toString().trim()
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putString(STATE_RESULT, teks_hasil.text.toString())
+    }
+
+    override fun onClick(v: View?) {
+        if (v?.id== R.id.btn_result){
+            val input_panjang = input_panjang.text.toString().trim()
+            val input_lebar = input_lebar.text.toString().trim()
+            val input_tinggi = input_tinggi.text.toString().trim()
             val volume = input_panjang.toDouble() * input_lebar.toDouble() * input_tinggi.toDouble()
-            hasil.text = volume.toString()
+            teks_hasil.text = volume.toString()
         }
     }
 }
