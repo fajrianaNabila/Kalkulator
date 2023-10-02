@@ -5,4 +5,6 @@
     <string name="input_tinggi" />
     <string name="btn_hitung" />
     <string name="result" />
+    <string name="pindah_activity">Pindah Activity</string>
+    <string name="pindah_activity_dengan_data">Pindah Activity dengan Data</string>
 </resources>

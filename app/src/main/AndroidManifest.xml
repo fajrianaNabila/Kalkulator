@@ -13,6 +13,12 @@
         android:theme="@style/Theme.Kalkulator"
         tools:targetApi="31">
         <activity
+            android:name=".MoveWithDataActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainIntentUp"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
